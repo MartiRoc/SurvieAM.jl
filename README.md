@@ -14,6 +14,8 @@ Package élaboré dans le cadre de l'UE Optimisation-Julia-Python du M2 SSD de l
 
   En entrée, *times*, *status* et *group* sont équivalents aux arguments à renseigner pour la fonction *KM* ci-dessus. Cependant, cette fois *group* est un argument obligatoire et doit être binaire. La dernière variable *approx-pval* est liée à l'approximation réalisée par la fonction dans le calcul de la p-valeur. En effet $p_{val} = \mathbb{P}(T> X_{2}(1))$, avec $T$ la statistique de test. La fonction approche cette probabilité en tirant *approx_pval* fois une loi du $X_{2}(1)$ (Chi2 à un degré de liberté) et renvoie la proportion de tirages strictement plus petit que $T$.
 
+  En sortie on obtient un tuple nommé : .T, .pval avec resp. la statistique de test et la p-valeur approchée.
+
 ## Installation:
 
 ### 1-ère Méthode par le RPEL uniquement
