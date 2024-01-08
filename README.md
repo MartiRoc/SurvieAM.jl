@@ -16,6 +16,8 @@ Package élaboré dans le cadre de l'UE Optimisation-Julia-Python du M2 SSD de l
 
   En sortie on obtient un tuple nommé : .T, .pval avec resp. la statistique de test et la p-valeur approchée.
 
+- *df_test* : une DataFrame de données de survie fictives à une maladie. Elle contient les colonnes *duree* (temps de survie en jours), *statut* (0 pour censure, 1 pour non-censure du temps de survie), *traitement* (groupes de traitement : 1 et 2) et *fonction* (fonction rénale : "A" pour anormale, "N" pour normale). 
+
 ## Installation:
 
 ### 1-ère Méthode par le RPEL uniquement
