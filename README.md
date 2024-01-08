@@ -12,7 +12,7 @@ Package élaboré dans le cadre de l'UE Optimisation-Julia-Python du M2 SSD de l
 
 - *Log_Rank(times, status, group, approx_pval = 1000000)* : qui réalise le test du Log-Rank (Mantel-Haenszel test → sans pondération).
 
-  En entrée, *times*, *status* et *group* sont équivalents aux arguments à renseigner pour la fonction *KM* ci-dessus. Cependant, cette fois *group* est un argument obligatoire et doit être binaire. La dernière variable *approx-pval* est liée à l'approximation réalisée par la fonction dans le calcul de la p-valeur. En effet $p_{val}$
+  En entrée, *times*, *status* et *group* sont équivalents aux arguments à renseigner pour la fonction *KM* ci-dessus. Cependant, cette fois *group* est un argument obligatoire et doit être binaire. La dernière variable *approx-pval* est liée à l'approximation réalisée par la fonction dans le calcul de la p-valeur. En effet $p_{val} = \mathbb{P}(T>\Chi_{2})$
 
 ## Installation:
 
