@@ -4,9 +4,15 @@
 
 Package élaboré dans le cadre de l'UE Optimisation-Julia-Python du M2 SSD de l'Université Grenoble-Alpes. Il a pour but l'analyse de survie et contient :
 
-- **KM(durees::Vector{Any}, statut::Vector{Any}, groupe::Vector{Any} = nothing)** : qui calcule l'estimateur de Kaplan-Meier de la fonction de survie, avec *duree* les temps de survie (des entiers), *statut* qui indique la censure ou non du temps du de survie (0 → censure, 1 → non-censure) et *groupe* un argument facultatif qui encode l'appartenance à des groupes des arguments précédents. Dans le cas où ce dernier argument est renseigné la fonction calcule autant d'estimateurs de Kaplan-Meier qu'il y a de facteurs (groupes) dans le vecteur *groupe*. Tous les arguments (le facultatif s'il est renseigné) doivent posséder la même dimension.
+- *KM(time::Vector{}, status::Vector{}, group::Vector{} = nothing)* : qui calcule l'estimateur de Kaplan-Meier de la fonction de survie.
 
-  En sortie on obtient une DataFrame à deux colonnes *temps* & *S_KM*. Si des groupes sont renseignés dans la variable *groupe* la fonction retourne un tuple nommé : .a, .b, .c, ... , où chaque élément est une DataFrame *temps* & *S_KM* pour chacun des facteurs de la variable *groupe* (l'équivalence .a, .b, ... <--> facteur1, facteur2, ... est affichée à l'appel de la fonction). 
+  En entrée, *time* encode les temps de survie, *status* indique la censure ou non du temps de survie (0 → censure, 1 → non-censure) et *group* est un argument facultatif qui encode l'appartenance à des groupes des arguments précédents. Dans le cas où ce dernier argument est renseigné la fonction calcule autant d'estimateurs de Kaplan-Meier qu'il y a de facteurs (groupes) dans le vecteur *group*. Tous les arguments (le facultatif s'il est renseigné) doivent posséder la même dimension.
+
+  En sortie on obtient une DataFrame à deux colonnes *temps* & *S_KM*. Si des groupes sont renseignés dans la variable *group* la fonction retourne un tuple nommé : .a, .b, .c, ... , où chaque élément est une DataFrame *temps* & *S_KM* pour chacun des facteurs de la variable *group* (l'équivalence .a, .b, ... <--> facteur1, facteur2, ... est affichée à l'appel de la fonction).
+
+- *Log_Rank(times, status, group, approx_pval = 1000000)* : qui réalise le test du Log-Rank (Mantel-Haenszel test → sans pondération).
+
+  En entrée, *times*, *status* et *group* sont équivalents aux arguments à renseigner pour la fonction *KM* ci-dessus. Cependant, cette fois *group* est un argument obligatoire et doit être binaire. La dernière variable *approx-pval* est liée à l'approximation réalisée par la fonction dans le calcul de la p-valeur. En effet $p_{val}$
 
 ## Installation:
 
