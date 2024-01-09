@@ -1,6 +1,7 @@
 module SurvieAM
 
 using DataFrames
+using Plots
 
 include("fonctions.jl")
 
