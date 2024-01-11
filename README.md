@@ -2,7 +2,11 @@
 
 ## Description
 
-Package élaboré dans le cadre de l'UE Optimisation-Julia-Python du M2 SSD de l'Université Grenoble-Alpes. Il a pour but l'analyse de survie et contient :
+Package élaboré dans le cadre de l'UE Optimisation-Julia-Python du M2 SSD de l'Université Grenoble-Alpes. Il a pour but l'analyse de survie sur données potentiellement censurées et groupées. Il ne dépend d'aucune librairie statistique existante en Julia, seulement de : Dataframes.jl et Plots.jl (automiquement installées et importées avec nore package).
+
+## Documentation des fonctions
+
+### Fonction KM
 
 - *KM(time::Vector{}, status::Vector{}, group::Vector{} = nothing)* : qui calcule l'estimateur de Kaplan-Meier de la fonction de survie.
 
@@ -10,13 +14,19 @@ Package élaboré dans le cadre de l'UE Optimisation-Julia-Python du M2 SSD de l
 
   En sortie on obtient une DataFrame à deux colonnes *temps* & *S_KM*. Si des groupes sont renseignés dans la variable *group* la fonction retourne un tuple nommé : .a, .b, .c, ... , où chaque élément est une DataFrame *temps* & *S_KM* pour chacun des facteurs de la variable *group* (l'équivalence .a, .b, ... <--> facteur1, facteur2, ... est affichée à l'appel de la fonction).
 
-- *KM_curve( )* : cette fonction prend en argument n'importe quelle sortie de la fonction *KM* ci-dessus, que ce soit une DataFrame ou un tuple de DataFrame, et elle trace les courbes estimées de survie correspondantes. 
+### Fonction KM_curve
+
+- *KM_curve( )* : cette fonction prend en argument n'importe quelle sortie de la fonction *KM* ci-dessus, que ce soit une DataFrame ou un tuple de DataFrame, et elle trace les courbes estimées de survie correspondantes.
+
+### Fonction Log_Rank
 
 - *Log_Rank(times, status, group, approx_pval = 1000000)* : qui réalise le test du Log-Rank (Mantel-Haenszel test → sans pondération).
 
   En entrée, *times*, *status* et *group* sont équivalents aux arguments à renseigner pour la fonction *KM* ci-dessus. Cependant, cette fois *group* est un argument obligatoire et doit être binaire. La dernière variable *approx-pval* est liée à l'approximation réalisée par la fonction dans le calcul de la p-valeur. En effet $p_{val} = \mathbb{P}(T> X_{2}(1))$, avec $T$ la statistique de test. La fonction approche cette probabilité en tirant *approx_pval* fois une loi du $X_{2}(1)$ (Chi2 à un degré de liberté) et renvoie la proportion de tirages strictement plus petits que $T$.
 
   En sortie on obtient un tuple nommé : .T, .pval avec resp. la statistique de test et la p-valeur approchée.
+
+### Données fictives
 
 - *df_test* : une DataFrame de données de survie fictives à une maladie. Elle contient les colonnes *duree* (temps de survie en jours), *statut* (0 pour censure, 1 pour non-censure du temps de survie), *traitement* (groupes de traitement : 1 et 2) et *fonction* (fonction rénale : "A" pour anormale, "N" pour normale). 
 
