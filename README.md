@@ -2,7 +2,7 @@
 
 ## Description
 
-Package élaboré dans le cadre de l'UE Optimisation-Julia-Python du M2 SSD de l'Université Grenoble-Alpes. Il a pour but l'analyse de survie sur données potentiellement censurées et groupées. Il ne dépend d'aucune librairie statistique existante en Julia, seulement de : Dataframes.jl et Plots.jl (automiquement installées et importées avec nore package).
+Package élaboré dans le cadre de l'UE Optimisation-Julia-Python du M2 SSD de l'Université Grenoble-Alpes. Il a pour but l'analyse de survie sur données possiblement censurées et groupées. Il ne dépend d'aucune librairie statistique existante en Julia, seulement de : Dataframes.jl et Plots.jl (natives dans Julia et importées avec le package).
 
 ## Documentation des fonctions
 
