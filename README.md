@@ -1,4 +1,4 @@
-#Package SurvieAM — Estimateur de Kaplan-Meier et test du Log-Rank from scratch
+# Package SurvieAM — Estimateur de Kaplan-Meier et test du Log-Rank from scratch
 
 ## Description
 
